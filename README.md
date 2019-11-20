@@ -34,7 +34,7 @@ Instead of creating and destroying new mushrooms every time the `Attack` button 
 * Add the following serialized fields
   * An object pool list variable to keep track of the list of game objects
   * A game object variable to indicate the game object we want to pool
-  * An int variable to keep indicate the amount of Animinis we want to start off with
+  * An int variable to keep indicate the amount of mushrooms we want to start off with
 * Populate the object pool list using the serialized int variable and the game object variable and use `SetActive(bool)` to set all game objects to false in the `Start` function
 
 ### Part 1.2 - Time To Dive Into The Pool
