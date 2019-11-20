@@ -26,7 +26,15 @@ The scripts are organized as such:
 
 Here is a brief description of some helpful files for your assignment.
 * Within The SetUp Folder
-  * 
+  * `Attack.cs` - this file is only used for Stage 1 to do object pooling
+  * `BattleHandler.cs` - this file generates the players and enemies within the combat and assigns the base attributes and skills (you will be changing this file later on)
+* Within The ToDo Folder
+  * `BattleAction.cs` - this is where the combat simluation will happen (you will be editing this a lot)
+  * `PhysicalSkill.cs` - this is a class that inherits from SkillsBase and serves as an example that you can use to create additional skills
+  * Within Base Folder
+    * `AttackBase.cs` - this file produces the animation for shooting the type of attack from a character to another
+    * `AttributeBase.cs` - this file contains all the base elements of attributes a character has
+    * `SkillsBase.cs` - this file contains all the base elements of skills a character has
 
 You will find that there are some TODOs sprinkled in some of the files. Those are there to help you in case you get stuck. 
 
@@ -118,7 +126,8 @@ Now that you have the characters and their skills ready, it's time to make them 
 But first, we should adjust some of the combat algorithm.
 
 You are responsible for the following:
-* Assign the player team characters to be either a Ninja, a mushroom thrower, or a Monk
+* Go into the `BattleHandler.cs` file and comment out lines 44, 45, 60, and 61 which are codes that add the AttributeBase and SkillsBase scripts to the players and enemies
+* Within `BattleHandler`, assign the player team characters to be either a Ninja, a mushroom thrower (AttributeBase), or a Monk and the enemy to each have one of the other 3 attributes
 * Override the `TakeDamage` function within the Ninja, mushroom thrower, and Monk class to calculate the health as:
 
 Health - (damageAmount - RandomAdvantageAmount)
