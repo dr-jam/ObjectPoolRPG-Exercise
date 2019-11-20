@@ -133,7 +133,7 @@ You are responsible for the following:
 Health - (damageAmount - RandomAdvantageAmount)
 
 where the random advantage amount is between 0 and half of their vitality
-### Stage 3.2 - Adjust Damages
+### Stage 3.2 - Attribute Adjustment
 Depending on the type of skills, it can have effects on a character's attributes aside from their health.
 
 You are responsible for the following:
