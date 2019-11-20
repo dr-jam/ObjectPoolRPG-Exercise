@@ -25,7 +25,10 @@ The scripts are organized as such:
 * The ToDo folder contains the files you will either reference or modify to finish the assignment
 
 Here is a brief description of some helpful files for your assignment.
-*  
+* Within The SetUp Folder
+  * 
+
+You will find that there are some TODOs sprinkled in some of the files. Those are there to help you in case you get stuck. 
 
 ### Grading
 Your project will be score according to the following 70 point system:
@@ -135,8 +138,17 @@ Now it's finally time to simulate the battle.
 
 You are responsible for the following:
 * Use the `BattleActionHandler` class to simulate the combat
-* Within `StartBattle` function, display the health of each character in the console (Debug.Log)
-* Finish the `DeterminOrderOfAttack` function using a character's agility and vitality where the order will be descending according to the max average of both attributes. 
-* Display the winning team in the console when everyone on the opposite team is defeated
+  * Determine the order of attack based on max(average(vitality, agility))
+  * For each character within the attack order queue
+    * Give a random set of skills 
+    * Give a random target on the opposite team
+    * Calculate damage according to the skill of the character and target 
+    * Have target take the damage 
+    * Change the health bar
+    * Set a delay timer so that the animation can finish before going to the next character 
+    * Rotate a character 90 degrees as if it has been killed when their health reaches zero or below
+
+Here is a helpful diagram of the combat system:
+![alt text](https://github.com/dr-jam/ObjectPoolRPG-Exercise/blob/master/Combat%20Loop.png "Combat System Diagram")
 
 ## Resources and Hints
