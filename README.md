@@ -28,6 +28,7 @@ Here is a brief description of some helpful files for your assignment.
 * Within The SetUp Folder
   * `Attack.cs` - this file is only used for Stage 1 to do object pooling
   * `BattleHandler.cs` - this file generates the players and enemies within the combat and assigns the base attributes and skills (you will be changing this file later on)
+  * `CollisionController.cs` - this file is attached to each player and enemy prefab. It is used to detect any projectiles and destroys them on impact. You will be modifying this file to make it work for this assignment
 * Within The ToDo Folder
   * `BattleAction.cs` - this is where the combat simluation will happen (you will be editing this a lot)
   * `PhysicalSkill.cs` - this is a class that inherits from SkillsBase and serves as an example that you can use to create additional skills
@@ -99,11 +100,7 @@ A skill is like a weapon, it defines a type of attack that a character can have.
 It's not much fun when there is only just one type of skill and only one character can blast mushrooms. So, we will create more.
 
 You are responsible for the following:
-* Create 2 more skills that is not just blasting mushrooms
-  * One should be magic type
-  * The other should be spirit type
-* Make sure your new scripts inherits from `SkillsBase.cs`
-* Set the skills to have different damage amounts
+* Modify the two scripts `SpiritualSkill` and `MagicSkill` to have different damage amounts
 
 ### Stage 2.2 - Give Each Character A Different Attribute
 Attributes are similar to classes of a character. For example, in [Destiny 2](https://d2.destinygamewiki.com/wiki/Classes), you can choose to be a Titan, a Hunter, or a Warlock. Each has their own special attributes that differentiate themselves from each other. There are also subclasses in Destiny 2 but we wouldn't be getting into that.
@@ -116,6 +113,7 @@ You are responsible for the following:
 * Make a Ogre character who has high health and vigor but low agility and vitality
 * Make a Hunter character who has medium health, agility, and vigor but low vitality
 * Make a Wizard character who has high health and vitality but low agility and vigor
+* Modify the `CollisionController` script in the SetUp folder to call the TakeDamage function based on the Attribute script that is attached to game object
 
 NOTE: Keep the values between 0-100. No limit to what you consider high or low. The values will be used for the combat portion in the next part.
 
