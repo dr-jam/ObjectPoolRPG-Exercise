@@ -4,10 +4,43 @@
 
 You are given a simple RPG world where you, as the player, can walk around and encounter enemy logs who are usually sleeping. As soon as you come in contact with an enemy log, you will be transported to the combat stage where you will need to engage in combat (unless you choose to escape). 
 
-By the end of this exercise, you should be able to optimize CPU performance through object pooling and know how to create a turn based combat system. 
+By the end of this exercise, you should be able to optimize CPU performance through object pooling and know how to create a turn based combat system in a RPG style game. 
+
+#### What is Object Pooling?
+Object pooling is a commonly used optimization pattern within games that requires constant instantiation and destruction of game objects. It is a method used to improve performance and memory usage within games. Instead of allocating memory for each instantiation and freeing them individually, game objects are called from a fixed pool of prescribed objects. Object pooling allows us to grab a large chunk of memory up front and only free it after the game finishes. In the meantime, players are free to use the objects from the allocated pool as they see fit.
+
+Here are some additional reference that may help solidify this concept:
+http://gameprogrammingpatterns.com/object-pool.html 
+https://learn.unity.com/search?k=%5B%22q%3Aobject%20pooling%22%5D
+https://unity3d.college/2017/05/11/unity3d-object-pooling/
+
+#### What is RPG?
+RPG stands for role playing games. Currently, there are two types of RPGS. One is the Western RPG and the other is the Japanese RPG. Even though both have the name RPG in there, each type have their own take on how an RPG is played. While JRPG focuses more on the combat system, leveling system, and story line, WRPG tends to be focused on character customization and world exploration. From a developer point of view, JRPGs tend to have crafted stories that curates player experiences whereas WRPGs tend to have crafted worlds that let's the player build their own experience. To learn more about the difference between JRPG and WRPG, here is a great [video series] (https://www.youtube.com/watch?v=l_rvM6hubs8) from Extra Credits.
+
+For this assignment, we will be focused on a JRPG style turn-based combat system. 
+
+### Helpful Document Description
+The scripts are organized as such:
+* The SetUp folder contains files that help create the interactions of the given game world such as character transporting into the battle ground
+* The ToDo folder contains the files you will either reference or modify to finish the assignment
+
+Here is a brief description of some helpful files for your assignment.
+*  
 
 ### Grading
+Your project will be score according to the following 70 point system:
 
+| Stage | Points |
+|:-----:|:------:|
+|  1.1  |   5    |
+|  1.2  |   5    |
+|  2.1  |   10   |
+|  2.2  |   10   |
+|  3.1  |   5    |
+|  3.2  |   10   |
+|  3.3  |   25   |
+
+The remaining 30 points will be based on your peer review of a classmate's programming exercise submission.
 
 
 ### Due Date and Submission Information
@@ -16,9 +49,6 @@ This exercise is due Tuesday November 26th at 11:59pm on GitHub Classroom. The m
 
 
 ## Stage 1 - Object Pooling
-
-Object pooling is a commonly used optimization pattern within games that requires constant instantiation and destruction of game objects. It is a method used to improve performance and memory usage within games. Instead of allocating memory for each instantiation and freeing them individually, game objects are called from a fixed pool of prescribed objects. Object pooling allows us to grab a large chunk of memory up front and only free it after the game finishes. In the meantime, players are free to use the objects from the allocated pool as they see fit.
-
 There are two Logos (enemy Logs) resting at the Northwest and Southeast corners. Feel free to visit either one to get into combat mode. 
 
 Once you are in combat mode, you will be able to press and hold the "Attack" button to shoot mushrooms and attack the Logos. Look at all those mushrooms being generated. 
@@ -27,8 +57,10 @@ Once you are in combat mode, you will be able to press and hold the "Attack" but
 
 Your CPU: WHYYYYY
 
-### Part 1.1 - Creating A Pool
+### Stage 1.1 - Creating A Pool
 Instead of creating and destroying new mushrooms every time the `Attack` button at the top right corner is pressed, we are going to create a large batch of mushrooms and have them be asleep (`inactive`). You task now is to create a new script called `ObjectPooler` and attach it to a persistent game object within the game Hierarchy. 
+
+You are responsible for the following:
 * Several scripts will need to access the object pool during gameplay so you will need to make sure there is `public static ObjectPooler SharedInstance;` within your script
 * Add `using System.Collections.Generic` to your script so that you can use the `List` class
 * Add the following serialized fields
@@ -37,37 +69,37 @@ Instead of creating and destroying new mushrooms every time the `Attack` button 
   * An int variable to keep indicate the amount of mushrooms we want to start off with
 * Populate the object pool list using the serialized int variable and the game object variable and use `SetActive(bool)` to set all game objects to false in the `Start` function
 
-### Part 1.2 - Time To Dive Into The Pool
+### Stage 1.2 - Time To Dive Into The Pool
 Now that you have a pool ready, it’s time to dive in.
+
+You are responsible for the following:
 * Create a new method that returns a GameObject that is not active in the hierarchy
 * Replace the instantiate and destroy code for the mushroom to use the pool instead
   * The instantiate and destroy code is in `Attack.cs`
   * Instantiation should call pool object and set the mushroom to active
   * Destroy should set the mushroom to inactive
 
-### Part 1.3 - Must Have More Mushrooms...
-Being the great creator of mushrooms and having a pool of them is great but what if you want to collect more without upsetting your CPU? 
-
-Must have more mushrooms…
-
-Let’s give your pool the capability to expand itself as needed.
-* Create a serialized `True` variable that checks whether the pool should be expanded
-* If check is true
-  * Instantiate a pool game object and set it to inactive
-  * Add the instantiated game object to the pool list
-  * Return the game object
-* Else return nothing
-
 ## Stage 2 - Setting Up The Stage For Combat
-It's not much fun when there is only just one type of skill and only one character can blast mushrooms. 
-### Part 2.1 - Create More Skills
+There are 2 teams at combat with each other. Each team has 3 characters and each character should have a different specialization in terms of attributes and skills. 
+
+A skill is like a weapon, it defines a type of attack that a character can have. For example, the given skill is mushroom throwing which is a physical type of skill. 
+
+### Stage 2.1 - Create More Skills
+It's not much fun when there is only just one type of skill and only one character can blast mushrooms. So, we will create more.
+
+You are responsible for the following:
 * Create 2 more skills that is not just blasting mushrooms
   * One should be magic type
   * The other should be spirit type
 * Make sure your new scripts inherits from `SkillsBase.cs`
 * Set the skills to have different damage amounts
+
 ### Stage 2.2 - Give Each Character A Different Attribute
+Attributes are similar to classes of a character. For example, in [Destiny 2](https://d2.destinygamewiki.com/wiki/Classes), you can choose to be a Titan, a Hunter, or a Warlock. Each has their own special attributes that differentiate themselves from each other. There are also subclasses in Destiny 2 but we wouldn't be getting into that.
+
 Currently, all the characters have the same attributes. That's no fun. Let's make them specifilize in different areas.
+
+You are responsible for the following:
 * Make a Ninja character who has high agility and health but low vigor
 * Make a Monk character who has high vitality but low health and vigor
 * Make a Ogre character who has high health and vigor but low agility and vitality
@@ -77,23 +109,31 @@ Currently, all the characters have the same attributes. That's no fun. Let's mak
 NOTE: Keep the values between 0-100. No limit to what you consider high or low. The values will be used for the combat portion in the next part.
 
 ## Stage 3 - Combat Algorithm
-Now that you have the characters and their skills ready, it's time to make them battle. But first, we should adjust some of the combat algorithm.
+Now that you have the characters and their skills ready, it's time to make them battle. 
 
-### Part 3.1 - Player Team Gets An Advantage
+### Stage 3.1 - Player Team Gets An Advantage
+But first, we should adjust some of the combat algorithm.
+
+You are responsible for the following:
 * Assign the player team characters to be either a Ninja, a mushroom thrower, or a Monk
 * Override the `TakeDamage` function within the Ninja, mushroom thrower, and Monk class to calculate the health as:
 
 Health - (damageAmount - RandomAdvantageAmount)
 
 where the random advantage amount is between 0 and half of their vitality
-### Part 3.2 - Adjust Damages
+### Stage 3.2 - Adjust Damages
 Depending on the type of skills, it can have effects on a character's attributes aside from their health.
-* Modify the base Attribute class to include the following
-  * Agility decreases by 5% and vigor decreases by 2% if the attack type is physical (ie. mushroom)
-  * Vitality decreases by 5% and vigor decreases by 2% if the attack type is spiritual
-  * Both agility and vitality will decrease by 2% if the attack is magical
 
-### Part 3.3 - Time For Battle
+You are responsible for the following:
+* Modify the base Attribute class to include the following
+  * When the attack type is physical (ie. mushroom), decrease agility by 5% and vigor by 2%
+  * When the attack type is spiritual, decrease vitality by 5% and vigor by 2%
+  * When the attack type is magical, decrease both agility and vitality by 2%
+
+### Stage 3.3 - Time For Battle
+Now it's finally time to simulate the battle.
+
+You are responsible for the following:
 * Use the `BattleActionHandler` class to simulate the combat
 * Within `StartBattle` function, display the health of each character in the console (Debug.Log)
 * Finish the `DeterminOrderOfAttack` function using a character's agility and vitality where the order will be descending according to the max average of both attributes. 
