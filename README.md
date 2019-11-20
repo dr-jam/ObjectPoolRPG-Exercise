@@ -10,12 +10,12 @@ By the end of this exercise, you should be able to optimize CPU performance thro
 Object pooling is a commonly used optimization pattern within games that requires constant instantiation and destruction of game objects. It is a method used to improve performance and memory usage within games. Instead of allocating memory for each instantiation and freeing them individually, game objects are called from a fixed pool of prescribed objects. Object pooling allows us to grab a large chunk of memory up front and only free it after the game finishes. In the meantime, players are free to use the objects from the allocated pool as they see fit.
 
 Here are some additional reference that may help solidify this concept:
-http://gameprogrammingpatterns.com/object-pool.html 
-https://learn.unity.com/search?k=%5B%22q%3Aobject%20pooling%22%5D
-https://unity3d.college/2017/05/11/unity3d-object-pooling/
+* http://gameprogrammingpatterns.com/object-pool.html 
+* https://learn.unity.com/search?k=%5B%22q%3Aobject%20pooling%22%5D
+* https://unity3d.college/2017/05/11/unity3d-object-pooling/
 
 #### What is RPG?
-RPG stands for role playing games. Currently, there are two types of RPGS. One is the Western RPG and the other is the Japanese RPG. Even though both have the name RPG in there, each type have their own take on how an RPG is played. While JRPG focuses more on the combat system, leveling system, and story line, WRPG tends to be focused on character customization and world exploration. From a developer point of view, JRPGs tend to have crafted stories that curates player experiences whereas WRPGs tend to have crafted worlds that let's the player build their own experience. To learn more about the difference between JRPG and WRPG, here is a great [video series] (https://www.youtube.com/watch?v=l_rvM6hubs8) from Extra Credits.
+RPG stands for role playing games. Currently, there are two types of RPGS. One is the Western RPG and the other is the Japanese RPG. Even though both have the name RPG in there, each type have their own take on how an RPG is played. While JRPG focuses more on the combat system, leveling system, and story line, WRPG tends to be focused on character customization and world exploration. From a developer point of view, JRPGs tend to have crafted stories that curates player experiences whereas WRPGs tend to have crafted worlds that let's the player build their own experience. To learn more about the difference between JRPG and WRPG, here is a great [video series](https://www.youtube.com/watch?v=l_rvM6hubs8) from Extra Credits.
 
 For this assignment, we will be focused on a JRPG style turn-based combat system. 
 
