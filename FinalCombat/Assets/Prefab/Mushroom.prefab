@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1534859094990728689}
   - component: {fileID: 8550099894201679438}
   - component: {fileID: -4190459066252436905}
+  - component: {fileID: 8833547833641637551}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Battle
@@ -165,3 +166,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8833547833641637551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785892666161400642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ab1255a7b784337aeb5462bcf11079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 10
+  AttackType: physical

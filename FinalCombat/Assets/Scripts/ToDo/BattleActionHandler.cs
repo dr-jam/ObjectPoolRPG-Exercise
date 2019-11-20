@@ -26,23 +26,21 @@ public class BattleActionHandler : MonoBehaviour
 
         while (!gameOver)
         {
-            // TODO: Display health status of each character using the health bars.
-            UpdateHealthBar();
-
             // TODO: Determine order of attack based on the formula given.
             DetermineAttackOrder();
 
-            // TODO: Pass into the AttackBase component of each character the projectile and character.
-            //       BattleHandler has a component called AttackBase. 
-
-            // TODO: Simulate battle using attack order by calling TakeDamage functions.
-
-            // TODO: Rotate a character 90 degrees as if it has been killed when their 
-            // TODO: Display winner in console when opposite team is defeated.
-            //       Use the GetHealth function to help you.
+            /* TODO: For each character 
+                     1. Give a random set of skills 
+                     2. Give a random target on the opposite team
+                     3. Calculate damage according to the skill of the character and target 
+                     4. Have target take the damage 
+                     5. Change the health bar
+                     6. Set a delay timer so that the animation can finish before going to the next character 
+                     7. Rotate a character 90 degrees as if it has been killed when their health reaches zero or below */
 
         }
     }
+
 
     public GameObject[] DetermineAttackOrder()
     {
@@ -52,11 +50,6 @@ public class BattleActionHandler : MonoBehaviour
         return attackOrder;
     }
 
-    public void UpdateHealthBar()
-    {
-        // TODO: Display health status of each character using the health bars.
-
-    }
 
     public void Escape()
     {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3959955520822018875}
   - component: {fileID: 860611990012232535}
   - component: {fileID: 2764245301358322073}
+  - component: {fileID: -8543121891570997897}
   m_Layer: 0
   m_Name: Battle Enemy
   m_TagString: EnemyTeam
@@ -140,5 +141,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c63d3a20eed042b88842844e02afebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8543121891570997897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451986142109438656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206075ccc733540c29e7153309916da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

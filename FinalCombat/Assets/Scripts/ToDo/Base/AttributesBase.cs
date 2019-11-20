@@ -5,11 +5,11 @@ using UnityEngine;
 public class AttributesBase: MonoBehaviour
 {
     // This is the base class for player attributes.
-    protected float Health = 100.0f;
-    protected float Agility = 50.0f;
-    protected float Vitality = 10.0f;
-    protected float Vigor = 20.0f;
-    protected SkillsBase Skill;
+    public float Health = 100.0f;
+    public float Agility = 50.0f;
+    public float Vitality = 10.0f;
+    public float Vigor = 20.0f;
+    public SkillsBase Skill;
     private HealthBarController healthBarController;
     private GameObject HealthBar;
     private GameObject ScrollingText;
@@ -31,14 +31,20 @@ public class AttributesBase: MonoBehaviour
     }
     private void Update()
     {
-        this.healthBarController.ChangeValue(this.Health);
+        //this.healthBarController.ChangeValue(this.Health);
     }
-    // This is the base damage taken formula.
+
     public virtual void TakeDamage(float damageAmount, string attackType)
 	{
 		this.Health = this.Health - damageAmount;
+
+        if (this.Health < 0.0f)
+        {
+            this.Health = 0.0f;
+        }
         Debug.Log(this.Health);
         this.healthBarController.ChangeValue(this.Health / this.Capacity);
+
         if (this.Capacity < 0.0f)
         {
             this.Capacity = 0.0f;
